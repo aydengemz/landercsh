@@ -78,9 +78,9 @@ const AffiliateButton = () => (
       animate={{ scale: [1, 1.02, 1], opacity: [0.5, 0.7, 0.5] }}
       transition={{ duration: 2, repeat: Infinity, repeatType: "reverse" }}
     />
-    <a href="https://glstrck.com/aff_c?offer_id=1145&aff_id=11848&source=hhh" target="_blank" rel="noopener noreferrer">
+    <a href="https://glstrck.com/aff_c?offer_id=1145&aff_id=11848&source=tests" target="_blank" rel="noopener noreferrer">
       <Button className="relative z-10 bg-gradient-to-r from-green-400 to-green-600 text-white font-semibold py-5 px-14 rounded-full text-lg flex items-center gap-2 shadow-lg hover:from-green-500 hover:to-green-700"> {/* Adjusted py-4 to py-3 */}
-        Claim Cash Now
+        Claim Cash Credit Now
         <ExternalLink className="w-6 h-6" />
       </Button>
     </a>
@@ -134,7 +134,7 @@ const RecentWinner = () => {
             <div className="flex items-center gap-3">
               <DollarSign className="w-6 h-6 text-green-400" />
               <AlertDescription className="font-medium">
-                <span className="text-green-400 font-semibold">{currentName}</span> just received $750! 💸
+                <span className="text-green-400 font-semibold">{currentName}</span> just received $1000! 💸
               </AlertDescription>
             </div>
           </Alert>
@@ -168,7 +168,7 @@ export default function Home() {
 
           <div className="relative text-center w-full max-w-xs py-2"> {/* Reduced py-4 to py-2 */}
             <h1 className="relative z-10 text-3xl font-bold text-green-400 mb-2"> {/* Reduced mb-1 to mb-2 */}
-              Get $750 Cash!
+              Black Friday: <br/> $1000 Cash App!
             </h1>
           </div>
 
@@ -181,7 +181,7 @@ export default function Home() {
               </h2>
               <ProgressStep number={1} title="Enter Basic Info" isActive={false} isCompleted={false} />
               <ProgressStep number={2} title="Complete 3-5 Deals" isActive={false} isCompleted={false} />
-              <ProgressStep number={3} title="Receive $750" isActive={false} isCompleted={false} />
+              <ProgressStep number={3} title="Receive Your $1000" isActive={false} isCompleted={false} />
             </CardContent>
           </Card>
 
