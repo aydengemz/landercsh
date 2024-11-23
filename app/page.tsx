@@ -168,7 +168,7 @@ export default function Home() {
 
           <div className="relative text-center w-full max-w-xs py-2"> {/* Reduced py-4 to py-2 */}
             <h1 className="relative z-10 text-3xl font-bold text-green-400 mb-2"> {/* Reduced mb-1 to mb-2 */}
-              Black Friday Special <br/> $750 Cash Credit
+              Black Friday: <br/> $750 Cash Credit!
             </h1>
           </div>
 
