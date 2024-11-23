@@ -134,7 +134,7 @@ const RecentWinner = () => {
             <div className="flex items-center gap-3">
               <DollarSign className="w-6 h-6 text-green-400" />
               <AlertDescription className="font-medium">
-                <span className="text-green-400 font-semibold">{currentName}</span> just received $1000! 💸
+                <span className="text-green-400 font-semibold">{currentName}</span> just received $750! 💸
               </AlertDescription>
             </div>
           </Alert>
@@ -168,7 +168,7 @@ export default function Home() {
 
           <div className="relative text-center w-full max-w-xs py-2"> {/* Reduced py-4 to py-2 */}
             <h1 className="relative z-10 text-3xl font-bold text-green-400 mb-2"> {/* Reduced mb-1 to mb-2 */}
-              Black Friday: $750 Cash App!
+              Black Friday Special <br/> $750 Cash Credit
             </h1>
           </div>
 
@@ -181,7 +181,7 @@ export default function Home() {
               </h2>
               <ProgressStep number={1} title="Enter Basic Info" isActive={false} isCompleted={false} />
               <ProgressStep number={2} title="Complete 3-5 Deals" isActive={false} isCompleted={false} />
-              <ProgressStep number={3} title="Receive Your $1000" isActive={false} isCompleted={false} />
+              <ProgressStep number={3} title="Receive Your $750" isActive={false} isCompleted={false} />
             </CardContent>
           </Card>
 
