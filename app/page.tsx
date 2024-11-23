@@ -78,9 +78,9 @@ const AffiliateButton = () => (
       animate={{ scale: [1, 1.02, 1], opacity: [0.5, 0.7, 0.5] }}
       transition={{ duration: 2, repeat: Infinity, repeatType: "reverse" }}
     />
-    <a href="https://glstrck.com/aff_c?offer_id=1295&aff_id=11848&source=csh1" target="_blank" rel="noopener noreferrer">
+    <a href="https://glstrck.com/aff_c?offer_id=1145&aff_id=11848&source=rev1" target="_blank" rel="noopener noreferrer">
       <Button className="relative z-10 bg-gradient-to-r from-green-400 to-green-600 text-white font-semibold py-5 px-14 rounded-full text-lg flex items-center gap-2 shadow-lg hover:from-green-500 hover:to-green-700"> {/* Adjusted py-4 to py-3 */}
-        Claim Cash App Credit
+        Claim Cash Credit
         <ExternalLink className="w-6 h-6" />
       </Button>
     </a>
@@ -168,7 +168,7 @@ export default function Home() {
 
           <div className="relative text-center w-full max-w-xs py-2"> {/* Reduced py-4 to py-2 */}
             <h1 className="relative z-10 text-3xl font-bold text-green-400 mb-2"> {/* Reduced mb-1 to mb-2 */}
-              Black Friday: <br/> $1000 Cash App!
+              Black Friday: $750 Cash App!
             </h1>
           </div>
 
@@ -177,7 +177,7 @@ export default function Home() {
           <Card className="w-full bg-gray-800/90 rounded-xl mb-5 border-gray-700"> {/* Reduced mb-6 to mb-5 */}
             <CardContent className="p-5"> {/* Reduced p-6 to p-5 */}
               <h2 className="text-2xl font-bold text-white mb-3 text-center"> {/* Reduced mb-4 to mb-3 */}
-                3 Simple Steps
+                3 Simple Steps:
               </h2>
               <ProgressStep number={1} title="Enter Basic Info" isActive={false} isCompleted={false} />
               <ProgressStep number={2} title="Complete 3-5 Deals" isActive={false} isCompleted={false} />
