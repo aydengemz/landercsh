@@ -149,7 +149,7 @@ const RecentWinner = () => {
 
 export default function Home() {
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center relative bg-white font-montserrat">
+    <div className="min-h-screen flex flex-col items-center justify-center relative bg-white">
       <RecentWinner />
       <div className="fixed inset-0 -z-10">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-white via-white to-white"></div>
