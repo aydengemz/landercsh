@@ -1,19 +1,10 @@
 "use client";
 import React, { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { DollarSign, Clock, ExternalLink } from 'lucide-react';
-import { Alert, AlertDescription } from './components/alert';
+import { motion } from 'framer-motion';
 import { Card, CardContent } from './components/card';
 import { Button } from './components/button';
-
-const names = [
-  'Ava R.', 'Ethan T.', 'Luna W.', 'Caleb R.', 'Aria K.',
-  'Julian P.', 'Piper S.', 'Gabriel L.', 'Sofia G.', 'Alexander T.',
-  'Mia M.', 'Logan D.', 'Isabella W.', 'Benjamin R.', 'Charlotte K.',
-  'Oliver P.', 'Abigail S.', 'Elijah L.', 'Emily G.', 'William T.',
-  'Harper M.', 'Lucas D.', 'Amelia W.', 'Mason R.', 'Evelyn K.',
-  'Liam P.', 'Hannah S.', 'Noah L.', 'Abigail G.', 'Ethan T.',
-];
+import Image from 'next/image';
+import { ExternalLink } from 'lucide-react';
 
 interface ProgressStepProps {
   number: number;
@@ -24,21 +15,24 @@ interface ProgressStepProps {
 
 const ProgressStep: React.FC<ProgressStepProps> = ({ number, title, isActive, isCompleted }) => (
   <motion.div
-    className="flex items-center mb-2 w-full pl-4"
+    className="flex items-center mb-1 w-full pl-4"
     initial={{ opacity: 0, x: -20 }}
     animate={{ opacity: 1, x: 0 }}
-    transition={{ duration: 0.25, delay: number * 0.08 }}
+    transition={{ duration: 0.3, delay: number * 0.1 }}
   >
     <motion.div
-      className={`w-8 h-8 sm:w-10 sm:h-10 rounded-full flex items-center justify-center mr-6
-        ${isCompleted ? 'bg-[#00D72E]' : isActive ? 'bg-[#00D72E]' : 'bg-white'}
-        text-black font-bold text-base sm:text-lg shadow-md`}
-      whileHover={{ scale: 1.1 }}
+      className={`w-8 h-8 rounded-xl flex items-center justify-center mr-3
+        ${isCompleted ? 'bg-gradient-to-r from-emerald-400 to-teal-500' : 
+          isActive ? 'bg-gradient-to-r from-emerald-400 to-teal-500' : 
+          'bg-gradient-to-r from-gray-100 to-gray-200'}
+        text-white font-bold text-lg shadow-lg`}
+      whileHover={{ scale: 1.05, rotate: 5 }}
       whileTap={{ scale: 0.95 }}
     >
-      {isCompleted ? '✓' : number}
+      {isCompleted ? '✓' : <span className="text-teal-600">{number}</span>}
     </motion.div>
-    <span className={`${isCompleted ? 'text-[#00D72E]' : isActive ? 'text-[#00D72E]' : 'text-black'} text-lg sm:text-xl font-semibold`}>
+    <span className={`${isCompleted ? 'text-emerald-500' : isActive ? 'text-emerald-500' : 'text-gray-700'} 
+      text-lg font-bold tracking-tight`}>
       {title}
     </span>
   </motion.div>
@@ -65,12 +59,14 @@ const CountdownTimer = () => {
   }, []);
 
   return (
-    <motion.div className="flex items-center justify-center space-x-2 text-[#00D72E] mb-4 bg-white p-3 rounded-lg">
-      <Clock className="w-5 h-5" />
-      <span className="text-lg font-bold">
+    <motion.div 
+      className="flex items-center justify-center space-x-2 text-emerald-500 mb-2 bg-gradient-to-r from-emerald-50 to-teal-50 p-2 rounded-2xl shadow-lg backdrop-blur-sm p-4"
+      whileHover={{ scale: 1.02 }}
+    >
+      <span className="text-xl font-bold tracking-wider">
         {String(timeLeft.minutes).padStart(2, '0')}:{String(timeLeft.seconds).padStart(2, '0')}
       </span>
-      <span>remaining</span>
+      <span className="text-md">remaining</span>
     </motion.div>
   );
 };
@@ -78,107 +74,58 @@ const CountdownTimer = () => {
 const AffiliateButton = () => (
   <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.98 }} className="relative">
     <motion.div
-      className="absolute -inset-1 bg-gradient-to-r from-[#00D72E]/40 to-[#00D72E]/40 rounded-lg blur-lg"
-      animate={{ scale: [1, 1.02, 1], opacity: [0.5, 0.7, 0.5] }}
-      transition={{ duration: 2, repeat: Infinity, repeatType: "reverse" }}
+      className="absolute -inset-1 bg-gradient-to-r from-emerald-400/40 to-teal-500/40 rounded-2xl blur-xl"
+      animate={{ scale: [1, 1.05, 1], opacity: [0.5, 0.8, 0.5] }}
+      transition={{ duration: 2.5, repeat: Infinity, repeatType: "reverse" }}
     />
     <a href="https://glstrck.com/aff_c?offer_id=1145&aff_id=11848&source=lander2" target="_blank" rel="noopener noreferrer">
-      <Button className="relative z-10 bg-gradient-to-r from-[#00D72E] to-[#00D72E] text-black font-semibold py-5 px-14 rounded-full text-lg flex items-center gap-2 shadow-lg hover:from-[#00D72E] hover:to-[#00D72E]">
-        Claim Cash Credit
-        <ExternalLink className="w-6 h-6" />
+      <Button className="relative z-10 bg-gradient-to-r from-emerald-400 to-teal-500 text-white font-bold py-4 px-10 rounded-2xl text-lg flex items-center gap-2 shadow-xl hover:from-emerald-500 hover:to-teal-600 transition-all duration-300">
+        Claim Credit Now
+        <ExternalLink className="w-5 h-5" />
       </Button>
     </a>
   </motion.div>
 );
 
-const RecentWinner = () => {
-  const [visible, setVisible] = useState(true);
-  const [currentName, setCurrentName] = useState(names[0]);
-  const [showAlert, setShowAlert] = useState(true);
-
-  useEffect(() => {
-    const handleResize = () => {
-      console.log('Window resized, showAlert:', window.innerHeight > 600);
-      setShowAlert(window.innerHeight > 600);
-    };
-    handleResize();
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
-  }, []);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setVisible(false);
-      setTimeout(() => {
-        setCurrentName(names[Math.floor(Math.random() * names.length)]);
-        setVisible(true);
-      }, 400);
-    }, 5000);
-
-    return () => clearInterval(interval);
-  }, []);
-
-  if (!showAlert) {
-    console.log('showAlert is false, alert will not be rendered.');
-    return null;
-  }
-
-  return (
-    <AnimatePresence>
-      {visible && (
-        <motion.div
-          initial={{ opacity: 0, y: -30 }}
-          animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: -30 }}
-          transition={{ duration: 0.5, ease: 'easeInOut' }}
-          className="fixed top-4 inset-x-0 mx-auto max-w-xs text-black"
-        >
-          <Alert className="w-full max-w-xs bg-white shadow-md text-sm sm:text-base p-4 rounded-lg backdrop-blur text-black">
-            <div className="flex items-center gap-3">
-              <DollarSign className="w-6 h-6 text-[#00D72E]" />
-              <AlertDescription className="font-medium">
-                <span className="text-[#00D72E] font-semibold">{currentName}</span> just received $750!
-              </AlertDescription>
-            </div>
-          </Alert>
-        </motion.div>
-      )}
-    </AnimatePresence>
-  );
-};
-
 export default function Home() {
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center relative bg-white">
-      <RecentWinner />
+    <div className="min-h-screen flex flex-col items-center justify-center relative bg-gradient-to-br from-gray-50 via-white to-emerald-50">
       <div className="fixed inset-0 -z-10">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-white via-white to-white"></div>
-        <div
-          className="absolute inset-0 bg-[url(`data:image/svg+xml,%3Csvg width='30' height='30' viewBox='0 0 30 30' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1.22676 0C1.91374 0 2.45351 0.539773 2.45351 1.22676C2.45351 1.91374 1.91374 2.45351 1.22676 2.45351C0.539773 2.45351 0 1.91374 0 1.22676C0 0.539773 0.539773 0 1.22676 0Z' fill='rgba(0,0,0,0.07)'/%3E%3C/svg%3E`)] opacity-20"
-        ></div>
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-transparent via-emerald-50/30 to-transparent"></div>
+        <div className="absolute inset-0 bg-[url('/path/to/your/background/image.svg')] opacity-30"></div>
       </div>
 
-      <div className="w-full min-h-screen flex flex-col items-center justify-center p-3 sm:p-6">
-        <motion.div className="w-full max-w-md flex flex-col items-center gap-2">
-          <div className="mb-3 w-28 sm:w-32 md:w-40 rounded-full overflow-visible p-2 relative">
-            <img
-              src="https://github.com/aydengemz/landerTemp/blob/main/app/cash2.png?raw=true"
-              alt="Cash App Logo"
-              className="w-full h-full object-cover"
-            />
-          </div>
+      <div className="w-full min-h-screen flex flex-col items-center justify-center p-4 sm:p-8">
+        <motion.div 
+          className="w-full max-w-lg flex flex-col items-center gap-2" // Adjusted gap for smaller margin
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+        >
+          <motion.div 
+            className="mb-2 w-28 sm:w-36 md:w-48 rounded-full overflow-visible p-1 relative" // Increased size and reduced margin
+            whileHover={{ rotate: 5, scale: 1.05 }}
+          >
+          <Image
+            src="/cash2.png" // Ensure this path is correct and accessible
+            alt="Cash App Logo"
+            width={150}
+            height={150}
+            className="object-cover drop-shadow-xl"
+          />
+                </motion.div>
 
-          <div className="relative text-center w-full max-w-xs py-2">
-            <h1 className="relative z-10 text-3xl font-bold text-black mb-2">
-             $750 Cash Credit!
+          <div className="relative text-center w-full max-w-sm py-3">
+            <h1 className="relative z-10 text-3xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-emerald-500 to-teal-600 mb-2">
+              $750 Holiday Cash!
             </h1>
           </div>
 
           <CountdownTimer />
 
-          <Card className="w-full bg-white rounded-xl mb-5 border-gray-700">
-            <CardContent className="p-5 text-center">
-              <h2 className="text-2xl font-bold text-black mb-3">
+          <Card className="w-full bg-gradient-to-br from-white to-gray-50 rounded-2xl mb-4 border border-emerald-100 shadow-xl">
+            <CardContent className="p-6 text-center">
+              <h2 className="text-2xl font-bold text-gray-800 mb-2">
                 3 Simple Steps:
               </h2>
               <ProgressStep number={1} title="Enter Basic Info" isActive={false} isCompleted={false} />
@@ -188,6 +135,30 @@ export default function Home() {
           </Card>
 
           <AffiliateButton />
+
+          <div className="flex items-center justify-center mt-4">
+          <Image
+            src="/ver.png" // Ensure this path is correct and accessible
+            alt="Verified by TikTok"
+            width={32}
+            height={32}
+            className="w-8 h-8 mr-2"
+          />
+            <span className="text-sm text-gray-600">Verified by TikTok</span>
+          </div>
+
+          <hr className="my-4 w-full border-t border-gray-300" />
+
+          <div className="mt-6 text-sm text-gray-600">
+            <h3 className="font-bold text-emerald-600">Privacy Policy</h3>
+            <p>(a) When you opt-into the service, we will send you an email to confirm your signup.</p>
+            <p>(b) Our message service will be used for marketing communications (including company updates, events, sales, shopping cart reminders, etc.).</p>
+            <p>(c) You can cancel the email service at any time. Just text &quot;STOP&quot; to the short code.</p>
+          </div>
+
+          <div className="mt-4 text-sm text-gray-600">
+            <a href="/privacy-policy" className="underline text-teal-500">Privacy Policy</a> | <a href="/terms-of-service" className="underline text-teal-500">Terms of Service</a>
+          </div>
         </motion.div>
       </div>
     </div>
