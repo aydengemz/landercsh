@@ -117,7 +117,7 @@ export default function Home() {
 
           <div className="relative text-center w-full max-w-sm py-3">
             <h1 className="relative z-10 text-3xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-emerald-500 to-teal-600 mb-2">
-              $750 Holiday Cash!
+              $750 Cash App!
             </h1>
           </div>
 
