@@ -39,34 +39,25 @@ const ProgressStep: React.FC<ProgressStepProps> = ({ number, title, isActive, is
 );
 
 const CountdownTimer = () => {
-  const [timeLeft, setTimeLeft] = useState({ minutes: 30, seconds: 0 });
+  const [claimedCount, setClaimedCount] = useState(847);
 
   useEffect(() => {
     const timer = setInterval(() => {
-      setTimeLeft(prev => {
-        if (prev.seconds === 0) {
-          if (prev.minutes === 0) {
-            clearInterval(timer);
-            return prev;
-          }
-          return { minutes: prev.minutes - 1, seconds: 59 };
-        }
-        return { ...prev, seconds: prev.seconds - 1 };
-      });
-    }, 1000);
+      const increment = Math.floor(Math.random() * 3) + 1; // Random increment between 1-3
+      setClaimedCount(prev => prev + increment);
+    }, Math.random() * (3000 - 1500) + 1500); // Random interval between 1.5-3 seconds
 
     return () => clearInterval(timer);
   }, []);
 
   return (
     <motion.div 
-      className="flex items-center justify-center space-x-2 text-emerald-500 mb-2 bg-gradient-to-r from-emerald-50 to-teal-50 p-2 rounded-2xl shadow-lg backdrop-blur-sm p-4"
+      className="flex items-center justify-center text-emerald-500 mb-2 bg-gradient-to-r from-emerald-50 to-teal-50 p-3 rounded-2xl shadow-lg backdrop-blur-sm"
       whileHover={{ scale: 1.02 }}
     >
-      <span className="text-xl font-bold tracking-wider">
-        {String(timeLeft.minutes).padStart(2, '0')}:{String(timeLeft.seconds).padStart(2, '0')}
-      </span>
-      <span className="text-md">remaining</span>
+      <span className="text-lg font-bold">
+        {claimedCount.toLocaleString()} 
+      </span><p> &nbsp;Claimed Today</p>
     </motion.div>
   );
 };
@@ -97,35 +88,36 @@ export default function Home() {
 
       <div className="w-full min-h-screen flex flex-col items-center justify-center p-4 sm:p-8">
         <motion.div 
-          className="w-full max-w-lg flex flex-col items-center gap-2" // Adjusted gap for smaller margin
+          className="w-full max-w-lg flex flex-col items-center gap-4"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
         >
           <motion.div 
-            className="mb-2 w-28 sm:w-36 md:w-48 rounded-full overflow-visible p-1 relative" // Increased size and reduced margin
+            className="mb-2 w-64 sm:w-80 md:w-96 rounded-lg overflow-visible p-1 relative"
             whileHover={{ rotate: 5, scale: 1.05 }}
           >
           <Image
-            src="/cash2.png" // Ensure this path is correct and accessible
+            src="/cash4.png"
             alt="Cash App Logo"
-            width={150}
-            height={150}
-            className="object-cover drop-shadow-xl"
+            width={500}
+            height={375}
+            className="object-cover drop-shadow-xl rounded-lg"
+            priority
           />
-                </motion.div>
+          </motion.div>
 
-          <div className="relative text-center w-full max-w-sm py-3">
-            <h1 className="relative z-10 text-3xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-emerald-500 to-teal-600 mb-2">
-              $750 Cash App!
+          <div className="relative text-center w-full max-w-sm">
+            <h1 className="relative z-10 text-3xl sm:text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-emerald-500 to-teal-600">
+              $750 Holiday Cash!
             </h1>
           </div>
 
           <CountdownTimer />
 
-          <Card className="w-full bg-gradient-to-br from-white to-gray-50 rounded-2xl mb-4 border border-emerald-100 shadow-xl">
+          <Card className="w-full bg-gradient-to-br from-white to-gray-50/90 backdrop-blur-sm rounded-2xl mb-4 border border-emerald-100 shadow-xl">
             <CardContent className="p-6 text-center">
-              <h2 className="text-2xl font-bold text-gray-800 mb-2">
+              <h2 className="text-2xl font-bold text-gray-800 mb-4">
                 3 Simple Steps:
               </h2>
               <ProgressStep number={1} title="Enter Basic Info" isActive={false} isCompleted={false} />
@@ -136,28 +128,31 @@ export default function Home() {
 
           <AffiliateButton />
 
-          <div className="flex items-center justify-center mt-4">
-          <Image
-            src="/ver.png" // Ensure this path is correct and accessible
-            alt="Verified by TikTok"
-            width={32}
-            height={32}
-            className="w-8 h-8 mr-2"
-          />
+          <motion.div 
+            className="flex items-center justify-center mt-4 bg-white/80 backdrop-blur-sm px-4 py-2 rounded-full shadow-sm"
+            whileHover={{ scale: 1.02 }}
+          >
+            <Image
+              src="/ver.png"
+              alt="Verified by TikTok"
+              width={24}
+              height={24}
+              className="w-6 h-6 mr-2"
+            />
             <span className="text-sm text-gray-600">Verified by TikTok</span>
-          </div>
+          </motion.div>
 
-          <hr className="my-4 w-full border-t border-gray-300" />
+          <hr className="my-6 w-full border-t border-gray-200" />
 
-          <div className="mt-6 text-sm text-gray-600">
-            <h3 className="font-bold text-emerald-600">Privacy Policy</h3>
-            <p>(a) When you opt-into the service, we will send you an email to confirm your signup.</p>
-            <p>(b) Our message service will be used for marketing communications (including company updates, events, sales, shopping cart reminders, etc.).</p>
+          <div className="mt-4 text-sm text-gray-600 bg-white/60 backdrop-blur-sm p-4 rounded-xl">
+            <h3 className="font-bold text-emerald-600 mb-2">Privacy Policy</h3>
+            <p className="mb-2">(a) When you opt-into the service, we will send you an email to confirm your signup.</p>
+            <p className="mb-2">(b) Our message service will be used for marketing communications (including company updates, events, sales, shopping cart reminders, etc.).</p>
             <p>(c) You can cancel the email service at any time. Just text &quot;STOP&quot; to the short code.</p>
           </div>
 
           <div className="mt-4 text-sm text-gray-600">
-            <a href="/privacy-policy" className="underline text-teal-500">Privacy Policy</a> | <a href="/terms-of-service" className="underline text-teal-500">Terms of Service</a>
+            <a href="/privacy-policy" className="underline text-teal-500 hover:text-teal-600">Privacy Policy</a> | <a href="/terms-of-service" className="underline text-teal-500 hover:text-teal-600">Terms of Service</a>
           </div>
         </motion.div>
       </div>
