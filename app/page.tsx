@@ -45,7 +45,6 @@ export default function Home() {
           <div 
             className="absolute inset-0 -m-4 rounded-3xl opacity-50"
             style={{
-              background: "radial-gradient(circle at center, rgba(76, 0, 255, 0.3) 0%, rgba(255, 0, 128, 0.3) 100%)",
               filter: "blur(20px)",
             }}
           />
