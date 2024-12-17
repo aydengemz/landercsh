@@ -10,12 +10,11 @@ export default function LandingPage() {
 
   return (
     <div
-      className="w-screen h-screen overflow-hidden relative flex items-center justify-center cursor-pointer"
+      className="w-full min-h-screen relative flex items-center justify-center cursor-pointer pt-16 md:pt-24"
       onClick={handleClick}
-      style={{ touchAction: "none" }}
     >
       {/* Gradient Background */}
-      <div className="absolute inset-0">
+      <div className="fixed inset-0">
         <div 
           className="absolute inset-0"
           style={{
@@ -26,20 +25,20 @@ export default function LandingPage() {
       </div>
 
       {/* Background Image */}
-      <div className="absolute inset-0">
+      <div className="fixed inset-0">
         <img
           src="/csh2.png"
           alt="Background"
-          className="w-full h-full object-cover"
+          className="w-full h-full object-contain md:object-cover object-top"
         />
       </div>
 
       {/* Clickable Overlay */}
-      <div className="absolute inset-0 z-10" />
+      <div className="fixed inset-0 z-10" />
 
       {/* NoScript Fallback */}
       <noscript>
-        <div className="absolute inset-0 flex items-center justify-center bg-black text-white text-center z-20">
+        <div className="fixed inset-0 flex items-center justify-center bg-black text-white text-center z-20">
           Please enable JavaScript to view this content.
         </div>
       </noscript>
