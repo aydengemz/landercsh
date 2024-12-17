@@ -2,7 +2,7 @@
 import React from "react";
 
 export default function LandingPage() {
-  const redirectLink = "https://t.afftrackr.com/?yte=ctpq4NGRdY9H9EqNoDVAUY5bKl3pvaM5vQJDRoz7h5U%3d&s1=";
+  const redirectLink = "https://t.afftrackr.com/?yte=ctpq4NGRdY9H9EqNoDVAUY5bKl3pvaM5vQJDRoz7h5U%3d&s2=withcard";
 
   const handleClick = () => {
     window.location.href = redirectLink;
@@ -28,7 +28,7 @@ export default function LandingPage() {
       {/* Background Image */}
       <div className="absolute inset-0">
         <img
-          src="/bg3.png"
+          src="/csh2.png"
           alt="Background"
           className="w-full h-full object-cover"
         />
