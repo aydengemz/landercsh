@@ -3,7 +3,7 @@ import React, { useRef, useEffect } from "react";
 
 export default function Home() {
   const videoRef = useRef<HTMLVideoElement | null>(null);
-  const redirectLink = "https://glstrck.com/aff_c?offer_id=469&aff_id=11848&source=1video25+";
+  const redirectLink = "https://t.afftrackr.com/?yte=ctpq4NGRdY9H9EqNoDVAUY5bKl3pvaM5vQJDRoz7h5U%3d&s1=";
 
   useEffect(() => {
     const playVideo = async () => {
