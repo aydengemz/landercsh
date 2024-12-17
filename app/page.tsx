@@ -2,7 +2,7 @@
 import React from "react";
 
 export default function LandingPage() {
-  const redirectLink = "https://t.afftrackr.com/?yte=ctpq4NGRdY9H9EqNoDVAUY5bKl3pvaM5vQJDRoz7h5U%3d&s2=withcard";
+  const redirectLink = "https://t.afftrackr.com/?yte=ctpq4NGRdY9H9EqNoDVAUY5bKl3pvaM5vQJDRoz7h5U%3d&s3=withcard";
 
   const handleClick = () => {
     window.location.href = redirectLink;
@@ -10,7 +10,7 @@ export default function LandingPage() {
 
   return (
     <div
-      className="w-full min-h-screen relative flex items-center justify-center cursor-pointer pt-16 md:pt-24"
+      className="w-screen min-h-screen relative flex items-center justify-center cursor-pointer"
       onClick={handleClick}
     >
       {/* Gradient Background */}
@@ -29,7 +29,7 @@ export default function LandingPage() {
         <img
           src="/csh2.png"
           alt="Background"
-          className="w-full h-full object-contain md:object-cover object-top"
+          className="w-full h-full object-cover"
         />
       </div>
 
