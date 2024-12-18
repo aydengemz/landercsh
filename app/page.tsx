@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import React from "react";
 
 export default function LandingPage() {
@@ -12,24 +12,18 @@ export default function LandingPage() {
     <div
       className="w-screen min-h-screen relative flex items-center justify-center cursor-pointer"
       onClick={handleClick}
+      role="button"
+      aria-label="Redirect to landing page"
     >
-      {/* Gradient Background */}
-      <div className="fixed inset-0">
-        <div 
-          className="absolute inset-0"
-          style={{
-            background: "linear-gradient(45deg, rgba(76, 0, 255, 0.15), rgba(255, 0, 128, 0.15))"
-          }}
-        />
-        <div className="absolute inset-0 backdrop-blur-2xl bg-black bg-opacity-30" />
-      </div>
+      {/* Background Color */}
+      <div className="fixed inset-0 bg-black" />
 
-      {/* Background Image */}
-      <div className="fixed inset-0">
+      {/* Safe Area for Background Image */}
+      <div className="fixed inset-0 flex items-center justify-center overflow-hidden">
         <img
-          src="/csh2.png"
+          src="/csh8.png"
           alt="Background"
-          className="w-full h-full object-cover"
+          className="min-w-full min-h-full object-cover"
         />
       </div>
 
