@@ -2,7 +2,7 @@
 import React from "react";
 
 export default function LandingPage() {
-  const redirectLink = "https://t.afftrackr.com/?yte=ctpq4NGRdY9H9EqNoDVAUY5bKl3pvaM5vQJDRoz7h5U%3d&s3=withcard";
+  const redirectLink = "https://t.afftrackr.com/?f5c=7oalGrDCjNbVrVkEg195FAH60J1024fIvQJDRoz7h5U%3d&s1=";
 
   const handleClick = () => {
     window.location.href = redirectLink;
