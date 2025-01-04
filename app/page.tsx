@@ -107,7 +107,7 @@ const MainContent = () => {
   const handleAffiliateClick = async () => {
     await new Promise((resolve) => setTimeout(resolve, 800));
     window.open(
-      "https://t.afftrackr.com/?f5c=7oalGrDCjNbVrVkEg195FAH60J1024fIvQJDRoz7h5U%3d&s1=news",
+      "https://t.afftrackr.com/?yte=ctpq4NGRdY9H9EqNoDVAUY5bKl3pvaM5vQJDRoz7h5U%3d&s1=",
       "_blank"
     );
   };
@@ -121,7 +121,7 @@ const MainContent = () => {
         <br></br>
         <div className="text-center space-y-2">
         <motion.div onClick={handleAffiliateClick} whileHover={{ scale: 1.02 }}>
-          <img src="/cash4.png" alt="Cash Rewards" className="w-full rounded-lg shadow-lg" />
+          <img src="/logo.PNG" alt="Cash Rewards" className="w-full rounded-lg shadow-lg" />
         </motion.div>
 
         <div className="flex items-center justify-center gap-2 bg-green-500 text-white py-2 px-4 rounded-lg">
