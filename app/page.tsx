@@ -107,7 +107,7 @@ const MainContent = () => {
   const handleAffiliateClick = async () => {
     await new Promise((resolve) => setTimeout(resolve, 800));
     window.open(
-      "https://t.afftrackr.com/?yte=ctpq4NGRdY9H9EqNoDVAUY5bKl3pvaM5vQJDRoz7h5U%3d&s1=",
+      "https://glstrck.com/aff_c?offer_id=469&aff_id=11848",
       "_blank"
     );
   };
