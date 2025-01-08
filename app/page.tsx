@@ -29,7 +29,7 @@ const SplashScreen: React.FC<{ onComplete: () => void }> = ({ onComplete }) => (
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       transition={{ duration: 0.8, ease: "easeInOut" }}
-      onAnimationComplete={() => setTimeout(onComplete, 800)} // Shortened delay
+      onAnimationComplete={() => setTimeout(onComplete, 800)}
     />
   </motion.div>
 );
@@ -74,7 +74,7 @@ const RecentWinner = () => {
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -30 }}
           transition={{ duration: 0.5, ease: 'easeInOut' }}
-          className="fixed top-4 inset-x-0 mx-auto max-w-xs text-black"
+          className="fixed top-4 inset-x-0 mx-auto max-w-xs z-50"
         >
           <Alert className="w-full max-w-xs bg-white shadow-md text-sm sm:text-base p-4 rounded-lg backdrop-blur text-black">
             <div className="flex items-center gap-3">
@@ -89,6 +89,7 @@ const RecentWinner = () => {
     </AnimatePresence>
   );
 };
+
 const MainContent = () => {
   const [timeLeft, setTimeLeft] = useState({ minutes: 29, seconds: 59 });
 
@@ -106,95 +107,69 @@ const MainContent = () => {
 
   const handleAffiliateClick = async () => {
     await new Promise((resolve) => setTimeout(resolve, 800));
-    window.location.href = "https://glstrck.com/aff_c?offer_id=1145&aff_id=11848&source=pop";
+    window.location.href = "https://glstrck.com/aff_c?offer_id=1145&aff_id=11848&source=newwwwwwwwwwwww";
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-white to-gray-50 flex flex-col items-center justify-center font-sans">
+    <div className="min-h-screen bg-gradient-to-b from-green-300 to-green-500 flex flex-col items-center justify-center font-sans p-4">
       <RecentWinner />
-
-      <div className="w-full max-w-md space-y-4 px-4 mb-20">
-        <br></br>
-        <br></br>
-        <div className="text-center space-y-2">
-        <motion.div onClick={handleAffiliateClick} whileHover={{ scale: 1.02 }}>
-          <img src="/logo.PNG" alt="Cash Rewards" className="w-full rounded-lg shadow-lg" />
+      
+      <motion.div 
+        className="w-full max-w-md bg-white rounded-2xl shadow-xl p-6 space-y-6 relative"
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
+      >
+        <motion.div 
+          onClick={handleAffiliateClick} 
+          whileHover={{ scale: 1.05 }} 
+          className="cursor-pointer flex justify-center"
+        >
+          <img src="/logo.PNG" alt="Cash Rewards" className="w-4/5 rounded-lg shadow-xl hover:shadow-2xl transition-shadow duration-300" />
         </motion.div>
 
-        <div className="flex items-center justify-center gap-2 bg-green-500 text-white py-2 px-4 rounded-lg">
-        <Clock className="w-4 h-4 sm:w-5 sm:h-5" />
-        <span className="font-semibold">
-          {String(timeLeft.minutes).padStart(2, "0")}:
-          {String(timeLeft.seconds).padStart(2, "0")}
-        </span>
-      </div>
-
+        <div className="flex items-center justify-center gap-2 bg-green-500 text-white py-3 px-4 rounded-lg shadow-md">
+          <Clock className="w-5 h-5" />
+          <span className="font-bold text-lg">
+            {String(timeLeft.minutes).padStart(2, "0")}:
+            {String(timeLeft.seconds).padStart(2, "0")}
+          </span>
         </div>
 
-
         <motion.div 
-          className="p-4 bg-white shadow-lg rounded-lg space-y-3"
+          className="bg-gray-50 p-5 rounded-xl shadow-sm space-y-3"
           onClick={handleAffiliateClick}
           whileHover={{ scale: 1.01 }}
         >
-          <h2 className="font-bold text-gray-800 text-lg flex items-center">
-            Quick Start Guide <ChevronRight className="ml-2 w-4 h-4 text-green-500" />
+          <h2 className="font-bold text-gray-800 text-xl flex items-center">
+            Quick Start Guide <ChevronRight className="ml-2 w-5 h-5 text-green-500" />
           </h2>
-          <ul className="space-y-2">
+          <ul className="space-y-3">
             {[
               { text: "Complete 2-3 required deals", highlight: "Earn up to $750" },
               { text: "Provide a valid email address", highlight: "For instant notification" },
               { text: "Ensure you are 18 years or older", highlight: "Required" }
             ].map((item, index) => (
-              <li key={index} className="flex items-center bg-gray-50 p-2 rounded-lg">
-                <div className="h-6 w-6 bg-green-500 rounded-full flex items-center justify-center text-white text-sm font-bold mr-2">
+              <li key={index} className="flex items-center bg-white p-3 rounded-lg shadow-sm">
+                <div className="h-7 w-7 bg-green-500 rounded-full flex items-center justify-center text-white text-sm font-bold mr-3">
                   ✓
                 </div>
                 <div>
-                  <div className="font-medium text-gray-800 text-sm">{item.text}</div>
-                  <div className="text-xs text-green-600">{item.highlight}</div>
+                  <div className="font-medium text-gray-800">{item.text}</div>
+                  <div className="text-sm text-green-600 font-medium">{item.highlight}</div>
                 </div>
               </li>
             ))}
           </ul>
         </motion.div>
 
-        <div className="fixed bottom-4 left-0 right-0 px-4 flex justify-center z-50">
-  <motion.button
-    onClick={handleAffiliateClick}
-    className="w-full max-w-md bg-green-500 text-white py-3 rounded-full text-lg font-bold relative overflow-hidden flex items-center justify-center" // Add 'flex items-center'
-    whileHover={{ scale: 1.02 }}
-    whileTap={{ scale: 0.98 }}
-  >
-    <motion.div
-      className="absolute inset-0"
-      initial={{ scale: 0.5, opacity: 0 }}
-      animate={{
-        scale: 2,
-        opacity: [0, 0.2, 0],
-      }}
-      transition={{
-        duration: 2,
-        repeat: Infinity,
-        ease: "easeOut",
-      }}
-      style={{
-        background: "radial-gradient(circle, rgba(255,255,255,0.8) 0%, rgba(255,255,255,0) 70%)"
-      }}
-    />
-    <span className="mr-2">Start Earning Now</span> {/* Add margin to the right of the text */}
-    <ChevronRight className="w-6 h-6 text-white" /> {/* ChevronRight icon */}
-  </motion.button>
-</div>
-
-
-        <motion.div 
-          className="p-4 bg-white shadow-lg rounded-lg space-y-3 mb-16"
+        {/* <motion.div 
+          className="bg-gray-50 p-5 rounded-xl shadow-sm space-y-3"
           onClick={handleAffiliateClick}
           whileHover={{ scale: 1.01 }}
         >
-          <h2 className="font-bold text-gray-800 text-lg flex items-center">
-            Common Questions <ChevronRight className="ml-2 w-4 h-4 text-green-500" />
+          <h2 className="font-bold text-gray-800 text-xl flex items-center">
+            Common Questions <ChevronRight className="ml-2 w-5 h-5 text-green-500" />
           </h2>
           {[
             {
@@ -210,13 +185,39 @@ const MainContent = () => {
               a: "Complete as many as you want - rewards sent upon completion"
             }
           ].map((item, index) => (
-            <div key={index} className="p-3 bg-gray-50 rounded-lg">
-              <h3 className="font-semibold text-green-600 text-sm">{item.q}</h3>
-              <p className="text-gray-700 mt-1 text-xs sm:text-sm">{item.a}</p>
+            <div key={index} className="p-3 bg-white rounded-lg shadow-sm">
+              <h3 className="font-semibold text-green-600">{item.q}</h3>
+              <p className="text-gray-700 mt-1">{item.a}</p>
             </div>
           ))}
-        </motion.div>
-      </div>
+        </motion.div> */}
+
+        <motion.button
+          onClick={handleAffiliateClick}
+          className="w-full bg-green-600 hover:bg-green-700 text-white py-4 rounded-xl text-lg font-bold relative overflow-hidden flex items-center justify-center shadow-lg sticky bottom-8"
+          whileHover={{ scale: 1.02 }}
+          whileTap={{ scale: 0.98 }}
+        >
+          <motion.div
+            className="absolute inset-0"
+            initial={{ scale: 0.5, opacity: 0 }}
+            animate={{
+              scale: 2,
+              opacity: [0, 0.3, 0],
+            }}
+            transition={{
+              duration: 2,
+              repeat: Infinity,
+              ease: "easeOut",
+            }}
+            style={{
+              background: "radial-gradient(circle, rgba(255,255,255,0.9) 0%, rgba(255,255,255,0) 70%)"
+            }}
+          />
+          <span className="mr-2">Start Earning Now</span>
+          <ChevronRight className="w-6 h-6 text-white" />
+        </motion.button>
+      </motion.div>
     </div>
   );
 };
