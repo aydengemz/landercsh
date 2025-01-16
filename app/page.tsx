@@ -107,7 +107,7 @@ const MainContent = () => {
 
   const handleAffiliateClick = async () => {
     await new Promise((resolve) => setTimeout(resolve, 800));
-    window.location.href = "https://glitchy.go2cloud.org/aff_c?offer_id=1598&aff_id=11848";
+    window.location.href = "https://t.afftrackr.com/?f5c=7oalGrDCjNbVrVkEg195FAH60J1024fIvQJDRoz7h5U%3d&s1=";
   };
 
   return (
