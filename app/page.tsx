@@ -107,8 +107,15 @@ const MainContent = () => {
 
   const handleAffiliateClick = async () => {
     await new Promise((resolve) => setTimeout(resolve, 800));
-    window.location.href = "https://t.afftrackr.com/?f5c=7oalGrDCjNbVrVkEg195FAH60J1024fIvQJDRoz7h5U%3d&s1=";
+    
+    const random = Math.random();
+    if (random < 0.5) {
+      window.location.href = "https://t.afftrackr.com/?f5c=7oalGrDCjNbVrVkEg195FAH60J1024fIvQJDRoz7h5U%3d&s1=";
+    } else {
+      window.location.href = "https://glstrck.com/aff_c?offer_id=1598&aff_id=11848&source=split";
+    }
   };
+  
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-green-300 to-green-500 flex flex-col items-center justify-center font-sans p-4">
