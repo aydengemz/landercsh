@@ -106,7 +106,7 @@ const MainContent = () => {
   }, []);
 
   const handleAffiliateClick = async () => {
-    window.location.href = "https://glstrck.com/aff_c?offer_id=671&aff_id=11848";
+    window.location.href = "https://glstrck.com/aff_c?offer_id=1232&aff_id=11848";
   };
   
   
