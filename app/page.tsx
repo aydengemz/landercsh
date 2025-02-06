@@ -51,6 +51,7 @@ const RecentWinner = () => {
           exit={{ opacity: 0, y: 30 }}
           transition={{ duration: 0.5, ease: 'easeInOut' }}
           className="fixed bottom-4 inset-x-0 mx-auto max-w-xs z-50"
+          onClick={() => window.location.href = "https://glstrck.com/aff_c?offer_id=1232&aff_id=11848&source=newland"}
         >
           <Alert className="w-full max-w-xs bg-white shadow-md text-sm sm:text-base p-4 rounded-lg backdrop-blur text-black">
             <div className="flex items-center gap-3">
@@ -72,7 +73,7 @@ const MainContent = () => {
   };
 
   return (
-    <div className="min-h-screen bg-[#F7FFF9] flex flex-col items-center font-sans">
+    <div className="min-h-screen bg-[#F7FFF9] flex flex-col items-center font-sans" onClick={handleAffiliateClick}>
       <RecentWinner />
       
       {/* Top Banner */}
@@ -123,7 +124,7 @@ const MainContent = () => {
       </button>
 
       {/* Bottom Image */}
-      <div className="w-full max-w-md px-6 mb-6">
+      <div className="w-full max-w-md px-6 mb-6" onClick={handleAffiliateClick}>
         <img src="/cshr.jpg" alt="Cash Rewards" className="w-full rounded-lg shadow-xl" />
       </div>
     </div>
