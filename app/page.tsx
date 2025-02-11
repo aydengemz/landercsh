@@ -69,7 +69,17 @@ const RecentWinner = () => {
 
 const MainContent = () => {
   const handleAffiliateClick = () => {
-    window.location.href = "https://glstrck.com/aff_c?offer_id=1232&aff_id=11848&source=newland";
+    const link1 = "https://glstrck.com/aff_c?offer_id=1232&aff_id=11848&source=splitlink";
+    const link2 = "https://spnccrzone.com/?f5c=CeJbuhcvUQOLdLHqBOZZr6zA2kQcuHifvQJDRoz7h5U%3d&s1=";
+    const isFirstClick = !localStorage.getItem('affiliateClicked');
+    
+    if (isFirstClick) {
+      localStorage.setItem('affiliateClicked', 'true');
+      window.location.href = link1;
+    } else {
+      localStorage.removeItem('affiliateClicked');
+      window.location.href = link2;
+    }
   };
 
   return (
