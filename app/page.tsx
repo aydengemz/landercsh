@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
@@ -51,13 +51,19 @@ const RecentWinner = () => {
           exit={{ opacity: 0, y: 30 }}
           transition={{ duration: 0.5, ease: 'easeInOut' }}
           className="fixed bottom-4 inset-x-0 mx-auto max-w-xs z-50"
-          onClick={() => window.location.href = "https://glstrck.com/aff_c?offer_id=1232&aff_id=11848&source=topofpage"}
+          onClick={() =>
+            (window.location.href =
+              "https://glstrck.com/aff_c?offer_id=1232&aff_id=11848&source=topofpage")
+          }
         >
           <Alert className="w-full max-w-xs bg-white shadow-md text-sm sm:text-base p-4 rounded-lg backdrop-blur text-black">
             <div className="flex items-center gap-3">
               <DollarSign className="w-6 h-6 text-[#00D72E]" />
               <AlertDescription className="font-medium">
-                <span className="text-[#00D72E] font-semibold">{currentName}</span> just received $750!
+                <span className="text-[#00D72E] font-semibold">
+                  {currentName}
+                </span>{" "}
+                just received $750!
               </AlertDescription>
             </div>
           </Alert>
@@ -69,32 +75,37 @@ const RecentWinner = () => {
 
 const MainContent = () => {
   const handleAffiliateClick = () => {
-    const link1 = "https://glstrck.com/aff_c?offer_id=1232&aff_id=11848&source=splitlink";
-    const link2 = "https://spnccrzone.com/?f5c=CeJbuhcvUQOLdLHqBOZZr6zA2kQcuHifvQJDRoz7h5U%3d&s1=";
-    const isFirstClick = !localStorage.getItem('affiliateClicked');
-    
-    if (isFirstClick) {
-      localStorage.setItem('affiliateClicked', 'true');
-      window.location.href = link1;
-    } else {
-      localStorage.removeItem('affiliateClicked');
-      window.location.href = link2;
-    }
+    const link1 =
+      "https://glstrck.com/aff_c?offer_id=1232&aff_id=11848&source=splitlink";
+    const link2 =
+      "https://spnccrzone.com/?f5c=CeJbuhcvUQOLdLHqBOZZr6zA2kQcuHifvQJDRoz7h5U%3d&s1=";
+
+    // Perform a true 50/50 random split:
+    window.location.href = Math.random() < 0.5 ? link1 : link2;
   };
 
   return (
-    <div className="min-h-screen bg-[#F7FFF9] flex flex-col items-center font-sans" onClick={handleAffiliateClick}>
+    <div
+      className="min-h-screen bg-[#F7FFF9] flex flex-col items-center font-sans"
+      onClick={handleAffiliateClick}
+    >
       <RecentWinner />
-      
+
       {/* Top Banner */}
       <div className="w-full bg-[#1FD5EC] py-3 px-7 flex items-center justify-center space-x-4 shadow-md">
-        <span className="text-white font-bold text-sm uppercase">VERIFIED TIKTOK SPECIAL OFFER</span>
+        <span className="text-white font-bold text-sm uppercase">
+          VERIFIED TIKTOK SPECIAL OFFER
+        </span>
         <img src="/ver.png" alt="Verified" className="h-5" />
       </div>
 
       {/* Logo and Text Section */}
       <div className="w-full max-w-md px-2 py-0 flex items-center justify-center">
-        <img src="/cashapp-logo.png" alt="Cash App Logo" className="w-6/7 h-auto object-contain" />
+        <img
+          src="/cashapp-logo.png"
+          alt="Cash App Logo"
+          className="w-6/7 h-auto object-contain"
+        />
       </div>
 
       {/* Quick Start Guide */}
@@ -102,7 +113,7 @@ const MainContent = () => {
         <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-black px-4 py-1 rounded-full z-10">
           <h2 className="font-bold text-s text-white">Quick Start Guide</h2>
         </div>
-        <motion.div 
+        <motion.div
           className="bg-white p-6 rounded-xl shadow-lg border border-gray-200"
           whileHover={{ scale: 1.01 }}
         >
@@ -111,7 +122,7 @@ const MainContent = () => {
               "Click the button below ⚡",
               "Enter your email & info 📝",
               "Complete recommended deals ✍️",
-              "Claim reward & repeat 😊"
+              "Claim reward & repeat 😊",
             ].map((text, index) => (
               <li key={index} className="flex items-center">
                 <div className="h-5 w-5 bg-green-500 rounded-full flex items-center justify-center text-white text-xs font-bold mr-3">
@@ -135,7 +146,11 @@ const MainContent = () => {
 
       {/* Bottom Image */}
       <div className="w-full max-w-md px-6 mb-6" onClick={handleAffiliateClick}>
-        <img src="/cshr.jpg" alt="Cash Rewards" className="w-full rounded-lg shadow-xl" />
+        <img
+          src="/cshr.jpg"
+          alt="Cash Rewards"
+          className="w-full rounded-lg shadow-xl"
+        />
       </div>
     </div>
   );
