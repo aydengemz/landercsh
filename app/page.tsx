@@ -53,7 +53,7 @@ const RecentWinner = () => {
           className="fixed bottom-4 inset-x-0 mx-auto max-w-xs z-50"
           onClick={() =>
             (window.location.href =
-              "https://glstrck.com/aff_c?offer_id=1232&aff_id=11848&source=topofpage")
+              "https://spnccrzone.com/?f5c=CeJbuhcvUQOLdLHqBOZZr6zA2kQcuHifvQJDRoz7h5U%3d&s1=")
           }
         >
           <Alert className="w-full max-w-xs bg-white shadow-md text-sm sm:text-base p-4 rounded-lg backdrop-blur text-black">
@@ -75,13 +75,11 @@ const RecentWinner = () => {
 
 const MainContent = () => {
   const handleAffiliateClick = () => {
-    const link1 =
-      "https://glstrck.com/aff_c?offer_id=1232&aff_id=11848&source=splitlink";
     const link2 =
       "https://spnccrzone.com/?f5c=CeJbuhcvUQOLdLHqBOZZr6zA2kQcuHifvQJDRoz7h5U%3d&s1=";
 
-    // Perform a true 50/50 random split:
-    window.location.href = Math.random() < 0.5 ? link1 : link2;
+    // Redirect to link2 only:
+    window.location.href = link2;
   };
 
   return (
