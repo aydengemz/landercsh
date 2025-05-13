@@ -76,7 +76,7 @@ const RecentWinner = () => {
 const MainContent = () => {
   const handleAffiliateClick = () => {
     const link2 =
-      "https://glstrck.com/aff_c?offer_id=1232&aff_id=11848";
+      "https://spnccrzone.com/?f5c=CeJbuhcvUQOLdLHqBOZZr6zA2kQcuHifvQJDRoz7h5U%3d&s1=";
 
     // Redirect to link2 only:
     window.location.href = link2;
