@@ -53,7 +53,7 @@ const RecentWinner = () => {
           className="fixed bottom-4 inset-x-0 mx-auto max-w-xs z-50"
           onClick={() =>
             (window.location.href =
-              "https://spnccrzone.com/?f5c=CeJbuhcvUQOLdLHqBOZZr6zA2kQcuHifvQJDRoz7h5U%3d&s1=")
+              "https://usetrk.com/aff_c?offer_id=1232&aff_id=11848")
           }
         >
           <Alert className="w-full max-w-xs bg-white shadow-md text-sm sm:text-base p-4 rounded-lg backdrop-blur text-black">
