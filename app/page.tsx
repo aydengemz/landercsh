@@ -76,7 +76,7 @@ const RecentWinner = () => {
 const MainContent = () => {
   const handleAffiliateClick = () => {
     const link2 =
-      "https://t.afftrackr.com/?nc2u=pJELZ6g5PmK8Joi6RGG86EsaW8QXV0XGvQJDRoz7h5U%3d&s1=";
+      "https://spnccrzone.com/?f5c=CeJbuhcvUQOLdLHqBOZZr6zA2kQcuHifvQJDRoz7h5U%3d&s1=";
 
     // Redirect to link2 only:
     window.location.href = link2;
