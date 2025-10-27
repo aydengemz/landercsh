@@ -76,7 +76,7 @@ const RecentWinner = () => {
 const MainContent = () => {
   const handleAffiliateClick = () => {
     const link2 =
-      "https://uplevelrewarded.com/aff_c?offer_id=1145&aff_id=11848";
+      "https://t.afftrackr.com/?eqi=ryzAnd7dUAlSqBQ94KGyswxBA1eCzEu3vQJDRoz7h5U%3d&s1=";
 
     // Redirect to link2 only:
     window.location.href = link2;
