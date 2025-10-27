@@ -76,7 +76,7 @@ const RecentWinner = () => {
 const MainContent = () => {
   const handleAffiliateClick = () => {
     const link2 =
-      "https://glstrk.com/?offer_ids=MTg2MywxMTQ1LDEzOTc%3D&affiliate_id=MTE4NDg%3D";
+      "https://t.afftrackr.com/?nc2u=pJELZ6g5PmK8Joi6RGG86EsaW8QXV0XGvQJDRoz7h5U%3d&s1=";
 
     // Redirect to link2 only:
     window.location.href = link2;
